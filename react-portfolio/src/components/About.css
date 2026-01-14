@@ -1,0 +1,55 @@
+.about-roni {
+    background: transparent;
+}
+
+.about-content-roni {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-content-roni p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.about-content-roni strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.status-live {
+    color: #10b981;
+    font-weight: 500;
+}
+
+.about-stack {
+    margin-top: 1rem;
+}
+
+.about-stack p {
+    margin-bottom: 1rem;
+}
+
+.stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.stack-tag {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.stack-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}

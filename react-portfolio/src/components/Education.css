@@ -1,0 +1,62 @@
+.education {
+    background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.02) 100%);
+}
+
+.education-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.education-item {
+    padding: 2rem;
+    border-left: 4px solid var(--accent-cyan);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 2rem;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg-primary);
+}
+
+.education-period {
+    color: var(--accent-cyan);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.education-item h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.education-institution {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.education-score {
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .education-item {
+        padding: 1.5rem;
+    }
+}
