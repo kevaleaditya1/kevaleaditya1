@@ -12,15 +12,28 @@ const Hero = () => {
         // Fetch GitHub activity and monthly commits
         const fetchGithubData = async () => {
             try {
-                const response = await fetch('https://api.github.com/users/kevaleaditya1/events/public');
-                const events = await response.json();
+                // Fetch recent events to get last activity
+                const eventsResponse = await fetch('https://api.github.com/users/kevaleaditya1/events/public');
+                const events = await eventsResponse.json();
+
+                console.log('GitHub Events:', events);
+                console.log('Total events:', events?.length);
 
                 if (events && events.length > 0) {
+                    console.log('Latest event:', events[0]);
+                    console.log('Event type:', events[0].type);
+                    console.log('Event created_at:', events[0].created_at);
+
                     const lastActivity = new Date(events[0].created_at);
                     const now = new Date();
                     const diffInMs = now - lastActivity;
                     const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60));
                     const diffInDays = Math.floor(diffInHours / 24);
+
+                    console.log('Last activity:', lastActivity);
+                    console.log('Current time:', now);
+                    console.log('Difference in hours:', diffInHours);
+                    console.log('Difference in days:', diffInDays);
 
                     if (diffInHours < 1) {
                         setGithubActivity('Just now');
@@ -32,22 +45,32 @@ const Hero = () => {
                         setGithubActivity(`${diffInDays}d ago`);
                     }
                 } else {
-                    setGithubActivity('Recently');
+                    console.log('No events found');
+                    setGithubActivity('Active');
                 }
 
-                // Count commits in current month
+                // Get commits for current month using GitHub Search API
                 const now = new Date();
-                const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const firstDay = `${year}-${month}-01`;
 
-                let commitCount = 0;
-                for (const event of events) {
-                    if (event.type === 'PushEvent') {
-                        const eventDate = new Date(event.created_at);
-                        if (eventDate >= firstDayOfMonth) {
-                            commitCount += event.payload.commits ? event.payload.commits.length : 0;
-                        }
+                // Search for commits by author in current month
+                const searchQuery = `author:kevaleaditya1 committer-date:>=${firstDay}`;
+                const searchUrl = `https://api.github.com/search/commits?q=${encodeURIComponent(searchQuery)}&per_page=1`;
+
+                console.log('Searching commits with query:', searchQuery);
+
+                const searchResponse = await fetch(searchUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.github.cloak-preview+json'
                     }
-                }
+                });
+
+                const searchData = await searchResponse.json();
+                const commitCount = searchData.total_count || 0;
+
+                console.log('Monthly commits from GitHub Search API:', commitCount);
                 setMonthlyCommits(commitCount);
 
             } catch (error) {
@@ -112,6 +135,8 @@ const Hero = () => {
                                 className="status-indicator"
                                 onMouseEnter={() => setShowTooltip(true)}
                                 onMouseLeave={() => setShowTooltip(false)}
+                                onClick={() => window.location.reload()}
+                                title="Click to refresh"
                             >
                                 <span className="status-dot"></span>
                                 <span className="status-time">{githubActivity}</span>
