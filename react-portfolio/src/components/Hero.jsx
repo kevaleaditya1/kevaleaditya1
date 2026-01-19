@@ -117,7 +117,7 @@ const Hero = () => {
                         </div>
 
                         <div className="hero-buttons">
-                            <a href="../Resume.pdf" className="btn-primary-roni" download>
+                            <a href="https://docs.google.com/document/d/1jwKJ87gIC88NY-b8obXYzs_dKZp4_DSWX4Dc25OfnjI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary-roni" download>
                                 <FaFileDownload /> View Resume
                             </a>
                         </div>
