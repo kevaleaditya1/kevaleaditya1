@@ -133,17 +133,20 @@
 .hero-profile {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .profile-image-wrapper {
     position: relative;
+    right: 120px;
 }
 
 .profile-image {
-    width: 180px;
-    height: 180px;
+    width: 190px;
+    height: 190px;
     border-radius: 50%;
     object-fit: cover;
+    background-color: rgb(62, 62, 62);
     filter: grayscale(100%);
     border: 3px solid rgba(255, 255, 255, 0.1);
 }

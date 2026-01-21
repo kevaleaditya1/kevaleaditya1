@@ -127,7 +127,7 @@ const Hero = () => {
                     <div className="hero-profile">
                         <div className="profile-image-wrapper">
                             <img
-                                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aditya"
+                                src="/aditya-pfp.png"
                                 alt="Aditya Kevale"
                                 className="profile-image"
                             />
