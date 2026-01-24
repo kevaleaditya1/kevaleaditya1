@@ -1,0 +1,53 @@
+.github-activity {
+  margin-top: 2rem;
+}
+
+.activity-card {
+  position: relative;
+  padding: 1.6rem 1.7rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
+}
+
+.activity-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.activity-header h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.activity-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.calendar-wrap {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .activity-card {
+    padding: 1.4rem 1.5rem;
+  }
+}

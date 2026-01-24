@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import './About.css';
+import GitHubActivity from './GitHubActivity';
 
 const About = () => {
     return (
@@ -43,6 +44,8 @@ const About = () => {
                         </div>
                     </div>
                 </motion.div>
+
+                <GitHubActivity />
             </div>
         </section>
     );
