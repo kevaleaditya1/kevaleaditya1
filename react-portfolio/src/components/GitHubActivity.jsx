@@ -61,24 +61,21 @@ const GitHubActivity = () => {
         </div>
 
         <div className="years-container">
-          {selectedYears.map((year) => (
-            <div key={year} className="year-column">
-              <h4>{year}</h4>
-              <div className="calendar-wrap">
-                <GitHubCalendar
-                  key={`${refreshKey}-${year}`}
-                  username={username}
-                  year={year}
-                  blockSize={12}
-                  blockMargin={4}
-                  fontSize={12}
-                  colorScheme="dark"
-                  theme={theme}
-                  showWeekdayLabels={false}
-                />
-              </div>
+          <div className="year-column">
+            <div className="calendar-wrap">
+              <GitHubCalendar
+                key={`${refreshKey}-${selectedYears[0]}`}
+                username={username}
+                year={selectedYears[0]}
+                blockSize={12}
+                blockMargin={4}
+                fontSize={12}
+                colorScheme="dark"
+                theme={theme}
+                showWeekdayLabels={false}
+              />
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
