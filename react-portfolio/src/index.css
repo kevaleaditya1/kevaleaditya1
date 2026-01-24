@@ -15,7 +15,6 @@
   /* Vibrant Gradients */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-cyan: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-purple: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
   --gradient-mesh: radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 1) 0px, transparent 50%),
     radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
@@ -29,7 +28,7 @@
   --text-primary: #ffffff;
   --text-secondary: #b4b9d6;
   --text-muted: #6b7280;
-  --text-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #667eea 100%);
+  --text-gradient: var(--text-primary);
 
   /* Accent Colors */
   --accent-cyan: #00f2fe;
@@ -158,10 +157,12 @@ p {
 }
 
 .section-title {
-  text-align: center;
+  text-align: left;
+  font-size: 1.5rem;
   margin-bottom: var(--spacing-lg);
   position: relative;
   font-family: 'Courier New', monospace;
+  color: var(--text-primary);
   font-weight: 600;
   text-transform: lowercase;
 }
@@ -178,8 +179,18 @@ p {
   width: 100px;
   height: 4px;
   background: var(--gradient-cyan);
-  margin: 1.5rem auto 0;
+  margin: 1.5rem 0 0;
   border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    text-align: left;
+  }
+
+  .section-title::after {
+    margin-left: 0;
+  }
 }
 
 /* Glass Card */
@@ -201,7 +212,7 @@ p {
 
 /* Gradient Text */
 .gradient-text {
-  background: var(--text-gradient);
+  background: var(--text-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

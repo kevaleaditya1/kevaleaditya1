@@ -35,21 +35,32 @@ const Education = () => {
                     Education
                 </motion.h2>
 
-                <div className="education-timeline">
+                <div className="education-grid">
                     {education.map((edu, index) => (
                         <motion.div
                             key={index}
-                            className="education-item glass-card"
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            className="education-card"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.2, duration: 0.6 }}
-                            whileHover={{ x: 10, scale: 1.02 }}
+                            transition={{ delay: index * 0.12, duration: 0.45 }}
+                            whileHover={{ y: -6, scale: 1.01 }}
                         >
-                            <div className="education-period">{edu.period}</div>
-                            <h3>{edu.degree}</h3>
-                            <p className="education-institution">{edu.institution}</p>
-                            <p className="education-score">{edu.score}</p>
+                            <div className="education-top">
+                                <div className="education-period">{edu.period}</div>
+                                <div className={`education-pill ${index === 0 ? 'current' : 'completed'}`}>
+                                    {index === 0 ? 'Current' : 'Completed'}
+                                </div>
+                            </div>
+                            <div className="education-body">
+                                <h3 className="education-title">{edu.degree}</h3>
+                                <p className="education-institution">{edu.institution}</p>
+                                <p className="education-score">{edu.score}</p>
+                            </div>
+                            <div className="education-footer">
+                                <span className="education-dot" />
+                                <span className="education-note">{index === 0 ? 'Actively studying' : 'Program completed'}</span>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

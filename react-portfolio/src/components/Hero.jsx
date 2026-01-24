@@ -96,7 +96,7 @@ const Hero = () => {
                     <div className="hero-text">
                         <h1 className="hero-name">Aditya Kevale</h1>
                         <p className="hero-bio">
-                            Full-stack developer, passionate about building innovative Open Source solutions that solve real-world problems.
+                            Full-stack Web developer, passionate about building innovative Open Source solutions that solve real-world problems.
                         </p>
 
                         <div className="hero-status">

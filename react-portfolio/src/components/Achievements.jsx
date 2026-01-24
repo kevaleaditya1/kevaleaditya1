@@ -60,13 +60,14 @@ const Achievements = () => {
                     {achievements.map((achievement, index) => (
                         <motion.div
                             key={index}
-                            className="achievement-card glass-card"
+                            className="achievement-card"
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             whileHover={{ y: -8, scale: 1.03 }}
                         >
+                            <div className="achievement-badge">Award</div>
                             <div className="achievement-icon">{achievement.icon}</div>
                             <h3>{achievement.title}</h3>
                             <p className="achievement-event">{achievement.event}</p>
@@ -88,14 +89,17 @@ const Achievements = () => {
                     {leadership.map((item, index) => (
                         <motion.div
                             key={index}
-                            className="leadership-card glass-card"
+                            className="leadership-card"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.5 }}
                             whileHover={{ y: -5, scale: 1.02 }}
                         >
-                            <div className="leadership-period">{item.period}</div>
+                            <div className="leadership-meta">
+                                <div className="leadership-period">{item.period}</div>
+                                <div className="leadership-pill">Leadership</div>
+                            </div>
                             <h4>{item.role}</h4>
                             <p className="leadership-org">{item.organization}</p>
                             <p className="leadership-description">{item.description}</p>

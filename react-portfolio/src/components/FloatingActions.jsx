@@ -11,7 +11,9 @@ const FloatingActions = () => {
         <>
             {/* Book a Call Button */}
             <motion.a
-                href="mailto:adityakevale1@gmail.com"
+                href="https://cal.com/kevaleaditya1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="book-call-btn"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}

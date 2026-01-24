@@ -36,21 +36,24 @@ const Skills = () => {
                     {skillCategories.map((category, index) => (
                         <motion.div
                             key={index}
-                            className="skill-category glass-card"
+                            className="skill-card"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            whileHover={{ y: -5, scale: 1.02 }}
+                            transition={{ delay: index * 0.1, duration: 0.45 }}
+                            whileHover={{ y: -6, scale: 1.01 }}
                         >
-                            <h3>{category.title}</h3>
+                            <div className="skill-head">
+                                <h3>{category.title}</h3>
+                                <span className="skill-count">{category.skills.length} skills</span>
+                            </div>
                             <div className="skill-tags">
                                 {category.skills.map((skill, i) => (
                                     <motion.span
                                         key={i}
                                         className="skill-tag"
-                                        whileHover={{ scale: 1.1, y: -2 }}
-                                        whileTap={{ scale: 0.95 }}
+                                        whileHover={{ scale: 1.06, y: -2 }}
+                                        whileTap={{ scale: 0.96 }}
                                     >
                                         {skill}
                                     </motion.span>
