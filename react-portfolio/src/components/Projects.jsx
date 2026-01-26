@@ -13,7 +13,7 @@ const Projects = () => {
             description: 'A blockchain-based Academic Credential Verification platform using Ethereum technology. Built blockchain-based platforms to verify academic credentials securely. Integrated RFIs with smart contracts to issue 1000+ credentials securely. Achieved 70% faster verification with smart contract logic.',
             fullDescription: 'Developed a comprehensive blockchain solution for academic credential verification. The platform leverages Ethereum smart contracts to ensure tamper-proof credential issuance and verification. Implemented IPFS for decentralized storage and created an intuitive React-based interface for institutions and verifiers.',
             tech: ['React.js', 'Node.js', 'Prisma', 'BlockChain', 'IPFS'],
-            github: 'https://github.com/adityakevale',
+            github: 'https://github.com/kevaleaditya1/CredVerify',
             website: null
         },
         {
@@ -22,7 +22,7 @@ const Projects = () => {
             description: 'Python-based AI system to detect pneumonia from chest X-ray images using CNN. Developed CNN model with 95%+ accuracy. Processed and augmented 5,000+ images. Enabled real-time classification using OpenCV.',
             fullDescription: 'Built a deep learning system using TensorFlow and Keras for automated pneumonia detection. The CNN model was trained on a large dataset of chest X-rays with extensive data augmentation techniques. Implemented real-time prediction capabilities with OpenCV integration.',
             tech: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'CNN'],
-            github: 'https://github.com/adityakevale',
+            github: 'https://github.com/kevaleaditya1/Detectify',
             website: null
         },
         {
@@ -31,7 +31,7 @@ const Projects = () => {
             description: 'Emotion-Based Music Recommendation System using AI and Deep Learning. Trained CNN model on facial emotion datasets. Integrated OpenCV for real-time webcam detection. Automated emotion-based music suggestions.',
             fullDescription: 'Created an intelligent music recommendation system that analyzes user emotions through facial recognition. The system uses a trained CNN model to detect emotions in real-time and suggests appropriate music from a curated database based on the detected mood.',
             tech: ['Python', 'Flutter', 'CNN', 'OpenCV', 'Deep Learning'],
-            github: 'https://github.com/adityakevale',
+            github: 'https://github.com/kevaleaditya1/Musify',
             website: null
         }
     ];

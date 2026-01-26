@@ -50,7 +50,7 @@ const Contact = () => {
                         {[
                             { icon: <FaGithub />, link: 'https://github.com/kevaleaditya1', label: 'GitHub' },
                             { icon: <FaLinkedin />, link: 'https://linkedin.com/in/kevaleaditya1/', label: 'LinkedIn' },
-                            { icon: <FaXTwitter />, link: 'https://twitter.com/kevaleaditya1i ', label: 'Twitter' },
+                            { icon: <FaXTwitter />, link: 'https://twitter.com/kevaleaditya1', label: 'Twitter' },
                             { icon: <FaEnvelope />, link: 'mailto:kevaleaditya1@gmail.com', label: 'Email' }
                         ].map((social, index) => (
                             <motion.a
