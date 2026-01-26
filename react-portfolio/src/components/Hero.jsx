@@ -112,7 +112,7 @@ const Hero = () => {
                                 <FaLinkedin /> LinkedIn
                             </a>
                             <a href="mailto:kevaleaditya1@gmail.com" className="hero-link">
-                                <FaEnvelope /> Contact
+                                <FaEnvelope /> E-mail
                             </a>
                         </div>
 
