@@ -14,7 +14,7 @@ const Projects = () => {
             fullDescription: 'Developed a comprehensive blockchain solution for academic credential verification. The platform leverages Ethereum smart contracts to ensure tamper-proof credential issuance and verification. Implemented IPFS for decentralized storage and created an intuitive React-based interface for institutions and verifiers.',
             tech: ['React.js', 'Node.js', 'Prisma', 'BlockChain', 'IPFS'],
             github: 'https://github.com/kevaleaditya1/CredVerify',
-            website: null
+            website: 'https://dacv-1.netlify.app/'
         },
         {
             title: 'Detectify',
