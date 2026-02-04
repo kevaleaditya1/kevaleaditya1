@@ -8,11 +8,13 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import FloatingDock from './components/FloatingDock';
 import FloatingActions from './components/FloatingActions';
+import VisitorBadge from './components/VisitorBadge';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <VisitorBadge />
       <Hero />
       <About />
       <Projects />

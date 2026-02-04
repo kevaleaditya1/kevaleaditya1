@@ -95,6 +95,11 @@
   padding-bottom: 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: #39d353 rgba(255, 255, 255, 0.05);
+  width: 100%;
+}
+
+.calendar-wrap > * {
+  min-width: max-content;
 }
 
 .calendar-wrap::-webkit-scrollbar {
@@ -136,11 +141,86 @@
 
 @media (max-width: 768px) {
   .activity-card {
-    padding: 1.4rem 1.5rem;
+    padding: 1.2rem 1rem;
+  }
+
+  .activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .activity-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .year-selector {
+    width: 100%;
+  }
+
+  .year-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .year-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 
   .years-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .calendar-wrap {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 300px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .calendar-wrap::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .calendar-wrap::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .calendar-wrap::-webkit-scrollbar-thumb {
+    background: #39d353;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-card {
+    padding: 1rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .activity-header h3 {
+    font-size: 1rem;
+  }
+
+  .year-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .calendar-wrap {
+    padding-bottom: 0.8rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 250px;
+    padding-right: 0.5rem;
+  }
+
+  .calendar-wrap > * {
+    transform: scale(0.85);
+    transform-origin: left top;
   }
 }

@@ -8,6 +8,33 @@ const GitHubActivity = () => {
   const currentYear = new Date().getFullYear();
   const availableYears = [currentYear, currentYear - 1, currentYear - 2];
   const [selectedYears, setSelectedYears] = useState(availableYears);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Calculate responsive block sizes
+  const getBlockSize = () => {
+    if (typeof window === 'undefined') return 12;
+    if (window.innerWidth <= 480) return 6;
+    if (window.innerWidth <= 768) return 8;
+    return 12;
+  };
+
+  const getBlockMargin = () => {
+    if (typeof window === 'undefined') return 4;
+    if (window.innerWidth <= 480) return 2;
+    if (window.innerWidth <= 768) return 3;
+    return 4;
+  };
 
   // Auto-refresh every 5 minutes
   useEffect(() => {
@@ -67,9 +94,9 @@ const GitHubActivity = () => {
                 key={`${refreshKey}-${selectedYears[0]}`}
                 username={username}
                 year={selectedYears[0]}
-                blockSize={12}
-                blockMargin={4}
-                fontSize={12}
+                blockSize={getBlockSize()}
+                blockMargin={getBlockMargin()}
+                fontSize={isMobile ? 10 : 12}
                 colorScheme="dark"
                 theme={theme}
                 showWeekdayLabels={false}
