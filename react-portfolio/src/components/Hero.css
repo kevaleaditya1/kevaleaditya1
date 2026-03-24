@@ -138,16 +138,18 @@
 
 .profile-image-wrapper {
     position: relative;
-    right: 120px;
+    /*right: 120px;*/
 }
 
 .profile-image {
     width: 190px;
     height: 190px;
+    top: 0;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit:cover;
+    object-position: top;
     background-color: rgb(62, 62, 62);
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
     border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -229,7 +231,7 @@
 .status-time {
     font-size: 0.75rem;
     color: var(--text-secondary);
-/*    border: 1px solid rgba(88, 88, 88, 0.901);
+    /*    border: 1px solid rgba(88, 88, 88, 0.901);
     padding: 0.25rem 0.5rem;
     border-radius: 20px;*/
 }

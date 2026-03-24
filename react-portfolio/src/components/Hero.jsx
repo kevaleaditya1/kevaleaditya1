@@ -127,7 +127,7 @@ const Hero = () => {
                     <div className="hero-profile">
                         <div className="profile-image-wrapper">
                             <img
-                                src="/aditya-pfp.png"
+                                src="/OG.png"
                                 alt="Aditya Kevale"
                                 className="profile-image"
                             />
