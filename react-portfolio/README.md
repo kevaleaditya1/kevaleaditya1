@@ -14,3 +14,21 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Private + Public GitHub Contributions
+
+This project includes a serverless endpoint at `api/github-contributions.js` that fetches your GitHub contribution calendar via GraphQL.
+
+Required environment variables:
+
+- `GITHUB_TOKEN`: GitHub token used server-side. Keep this secret.
+- `GITHUB_USERNAME`: Your GitHub username (optional, defaults to `kevaleaditya1`).
+
+Recommended token permissions:
+
+- Fine-grained personal access token for your account with `read:user` access.
+
+Notes:
+
+- Private contributions cannot be fetched securely from frontend-only code.
+- You must deploy with serverless functions enabled (for example Vercel) so `/api/github-contributions` is available.

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaXTwitter } from 'react-icons/fa6';
+import { FaCalendarAlt } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -45,6 +46,12 @@ const Contact = () => {
                         Open to opportunities in <span className="highlight">full-stack development</span>, <span className="highlight">blockchain</span>, or <span className="highlight">AI/ML</span>. 
                         DM me on <motion.a href="https://linkedin.com/in/kevaleaditya1/" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} className="contact-link">LinkedIn</motion.a> or <motion.a href="mailto:kevaleaditya1@gmail.com" whileHover={{ scale: 1.1 }} className="contact-link">email me</motion.a>.
                     </p>
+
+                    <div className="contact-actions">
+                        <a href="https://cal.com/kevaleaditya1" target="_blank" rel="noopener noreferrer" className="contact-book-btn">
+                            <FaCalendarAlt /> Book a Call
+                        </a>
+                    </div>
 
                     <div className="contact-icons">
                         {[

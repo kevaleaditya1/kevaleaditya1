@@ -1,19 +1,33 @@
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [theme, setTheme] = useState('light');
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll);
+
+        const storedTheme = localStorage.getItem('theme');
+        const preferredTheme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(preferredTheme);
+        document.documentElement.dataset.theme = preferredTheme;
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const toggleTheme = () => {
+        const nextTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(nextTheme);
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem('theme', nextTheme);
+    };
 
     const navItems = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Achievements', 'Contact'];
 
@@ -32,6 +46,10 @@ const Navbar = () => {
                 >
                     AK
                 </motion.div>
+
+                <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+                    {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                </button>
 
                 <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
                     {navItems.map((item, index) => (
