@@ -1,25 +1,23 @@
 .skills {
-    background: transparent;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.02) 100%);
 }
 
 .skills-grid {
-    max-width: 1120px;
+    max-width: 900px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
 }
 
 .skill-card {
     position: relative;
-    padding: 1.5rem;
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    background: var(--surface);
+    padding: 1.6rem 1.7rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--glass-shadow);
 }
 
 .skill-card::before {
@@ -36,8 +34,8 @@
 
 .skill-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(17, 24, 39, 0.12);
-    box-shadow: 0 20px 55px rgba(17, 24, 39, 0.1);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .skill-head {
@@ -49,7 +47,7 @@
 }
 
 .skill-head h3 {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     color: var(--text-primary);
     margin: 0;
 }
@@ -57,7 +55,7 @@
 .skill-count {
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.25px;
     background: rgba(255, 255, 255, 0.06);
@@ -73,13 +71,13 @@
 }
 
 .skill-tag {
-    background: rgba(17, 24, 39, 0.04);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
     padding: 0.55rem 1.05rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
+    border-radius: 12px;
+    font-size: 0.94rem;
     font-weight: 600;
-    border: 1px solid rgba(17, 24, 39, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: default;
 }
@@ -95,6 +93,6 @@
     }
 
     .skill-card {
-        padding: 1.25rem 1.3rem;
+        padding: 1.4rem 1.5rem;
     }
 }

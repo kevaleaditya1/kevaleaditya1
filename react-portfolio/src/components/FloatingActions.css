@@ -6,24 +6,23 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.5rem;
-    background: linear-gradient(135deg, rgba(126, 196, 255, 0.92), rgba(156, 175, 255, 0.92));
-    backdrop-filter: blur(18px);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
     z-index: 999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 20px rgba(126, 196, 255, 0.22);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .book-call-btn:hover {
-    background: linear-gradient(135deg, rgba(156, 175, 255, 0.95), rgba(126, 232, 255, 0.95));
-    border-color: var(--accent-cyan);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 30px rgba(126, 196, 255, 0.35);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .back-to-top-btn {
@@ -69,14 +68,14 @@
 /* Mobile */
 @media (max-width: 768px) {
     .book-call-btn {
-        bottom: 1rem;
+        bottom: 6rem;
         right: 1rem;
         padding: 0.75rem 1.25rem;
         font-size: 0.85rem;
     }
 
     .back-to-top-btn {
-        bottom: 1rem;
+        bottom: 6rem;
         left: 1rem;
         width: 44px;
         height: 44px;
@@ -87,14 +86,14 @@
 /* Small Mobile */
 @media (max-width: 480px) {
     .book-call-btn {
-        bottom: 0.75rem;
+        bottom: 5.5rem;
         right: 0.75rem;
         padding: 0.65rem 1rem;
         font-size: 0.8rem;
     }
 
     .back-to-top-btn {
-        bottom: 0.75rem;
+        bottom: 5.5rem;
         left: 0.75rem;
         width: 40px;
         height: 40px;
