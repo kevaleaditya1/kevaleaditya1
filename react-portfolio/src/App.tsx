@@ -58,7 +58,7 @@ function App() {
       <main>
         {/* HERO */}
         <section className="hero">
-          <div className="avatar">AK</div>
+          <img src="/Aditya.png" alt="Aditya Kevale" className="avatar avatar-image" />
           <h1 className="name">Aditya Kevale</h1>
           <p className="tagline">
             Java &amp; Spring Boot developer building verifiable, full-stack systems —
@@ -77,8 +77,8 @@ function App() {
               LinkedIn
             </a>
           </div>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-box">
-            Download résumé ↓
+          <a href="https://docs.google.com/document/d/e/2PACX-1vQlmXbdUqhl46EXz60cis-YPXx9SYrrOKOWSq5k6JT6E3pOwd7jb0PpCAEJPv7eRuPu7q11FoJeqXIs/pub" target="_blank" rel="noreferrer" className="resume-box">
+            Download Resume ↓
           </a>
           <div className="ist-clock">{istTime} IST</div>
         </section>
@@ -209,8 +209,8 @@ function App() {
             <a href={`mailto:${SOCIALS.email}`} className="btn-primary">
               {SOCIALS.email}
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="btn-ghost">
-              Download résumé
+            <a href="https://docs.google.com/document/d/e/2PACX-1vQlmXbdUqhl46EXz60cis-YPXx9SYrrOKOWSq5k6JT6E3pOwd7jb0PpCAEJPv7eRuPu7q11FoJeqXIs/pub" target="_blank" rel="noreferrer" className="btn-ghost">
+              Download Resume
             </a>
           </div>
           <div className="contact-socials">

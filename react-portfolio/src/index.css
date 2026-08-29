@@ -119,6 +119,13 @@ a {
   font-size: 18px;
 }
 
+.avatar-image {
+  object-fit:cover();
+  display: block;
+  border: 1px solid rgba(201, 164, 106, 0.5);
+  background: rgba(201, 164, 106, 0.08);
+}
+
 .name {
   font-size: 34px;
   font-weight: 700;

@@ -10,7 +10,6 @@ export interface TimelineItem {
 
 export interface Project {
   title: string;
-  period: string;
   summary: string;
   bullets: string[];
   tags: string[];
@@ -31,7 +30,7 @@ export interface Achievement {
 export const SOCIALS = {
   email: "kevaleaditya1@gmail.com",
   github: "https://github.com/kevaleaditya1",
-  linkedin: "https://www.linkedin.com/in/aditya-kevale",
+  linkedin: "https://www.linkedin.com/in/kevaleaditya1/",
   phone: "+91 73850 55199",
 };
 
@@ -70,9 +69,33 @@ export const EXPERIENCE: TimelineItem[] = [
 ];
 
 export const PROJECTS: Project[] = [
+    {
+    title: "Log File Analyzer",
+    summary:
+      "Java tool for parsing large web server logs to surface traffic patterns, HTTP errors, and suspicious client activity.",
+    bullets: [
+      "Processed large logs using Java 8 Streams, Collections, lambdas, and regex.",
+      "Used Streams and Collectors for filtering, sorting, grouping, and aggregation into traffic and status-code reports.",
+      "Added multithreading via ExecutorService and NIO-based File I/O with full exception handling.",
+      "Exported analytical reports to CSV for monitoring and follow-up analysis.",
+    ],
+    tags: ["Java 8", "Streams API", "Multithreading", "NIO"],
+  },
+  {
+    title: "Network Diagnostics CLI Tool",
+    summary:
+      "Console-based network diagnostics tool that consolidates DNS checks, connectivity tests, and port scanning into a single automated report.",
+    bullets: [
+      "Built a Java-based CLI tool that automates network diagnostics, including DNS resolution, connectivity checks, and port scanning, into one consolidated report.",
+      "Designed a modular architecture using a common DiagnosticCheck interface to decouple check logic, data models, and report generation for maintainability and extensibility.",
+      "Leveraged ExecutorService and Future to run multiple diagnostic checks concurrently, reducing total execution time compared with sequential execution.",
+      "Implemented structured error handling to manage network timeouts and unreachable hosts without crashing the scan.",
+      "Generated multi-format output in plain text, JSON, and HTML using a configurable report layer to demonstrate separation of concerns and output-format flexibility.",
+    ],
+    tags: ["Java", "Networking", "Concurrency", "CLI"],
+  },
   {
     title: "CredVerify — Decentralised Academic Credential Verification",
-    period: "Sep 2024 — Nov 2025",
     summary:
       "Tamper-proof academic credential verification built on Ethereum smart contracts and IPFS, replacing manual document checks with automated, on-chain logic.",
     bullets: [
@@ -89,7 +112,6 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Aana — Blogging Platform",
-    period: "2025",
     summary:
       "Full-stack blogging platform for tech and emerging-trends content, with an admin-driven publishing system on a type-safe backend.",
     bullets: [
@@ -105,34 +127,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: "Log File Analyzer",
-    period: "Nov 2025 — Feb 2026",
-    summary:
-      "Java tool for parsing large web server logs to surface traffic patterns, HTTP errors, and suspicious client activity.",
-    bullets: [
-      "Processed large logs using Java 8 Streams, Collections, lambdas, and regex.",
-      "Used Streams and Collectors for filtering, sorting, grouping, and aggregation into traffic and status-code reports.",
-      "Added multithreading via ExecutorService and NIO-based File I/O with full exception handling.",
-      "Exported analytical reports to CSV for monitoring and follow-up analysis.",
-    ],
-    tags: ["Java 8", "Streams API", "Multithreading", "NIO"],
-  },
-  {
-    title: "Expense Tracker",
-    period: "Apr 2026 — Jul 2026",
-    summary:
-      "Console-based personal finance manager for recording, categorizing, and reporting on daily expenses.",
-    bullets: [
-      "Built expense categorization, budgeting, and monthly reporting on OOP principles and Collections.",
-      "Automated category-wise spending reports with Streams, lambdas, Collectors, and Comparator.",
-      "Added File I/O and serialization for persistent storage, with validation for data integrity.",
-      "Used the Java Time API to manage transaction dates and monthly summaries.",
-    ],
-    tags: ["Java 8", "OOP", "Serialization", "Java Time API"],
-  },
-  {
     title: "Detectify — Pneumonia Detection from Chest X-Rays",
-    period: "Dec 2023 — Mar 2024",
     summary:
       "CNN model trained to flag pneumonia from chest X-rays, built to support faster diagnosis.",
     bullets: [
@@ -145,7 +140,6 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Musify — Emotion-Based Music Recommendation",
-    period: "Nov 2022 — Apr 2023",
     summary:
       "AI system that recommends music by reading facial emotion in real time from a webcam feed.",
     bullets: [
