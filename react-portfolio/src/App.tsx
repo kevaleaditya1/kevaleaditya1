@@ -135,7 +135,6 @@ function App() {
               <article className="project-card" key={project.title}>
                 <div className="project-head">
                   <h3>{project.title}</h3>
-                  <span className="period">{project.period}</span>
                 </div>
                 <p className="project-summary">{project.summary}</p>
                 <ul className="project-bullets">
