@@ -77,7 +77,7 @@ function App() {
               LinkedIn
             </a>
           </div>
-          <a href="https://docs.google.com/document/d/e/2PACX-1vQlmXbdUqhl46EXz60cis-YPXx9SYrrOKOWSq5k6JT6E3pOwd7jb0PpCAEJPv7eRuPu7q11FoJeqXIs/pub" target="_blank" rel="noreferrer" className="resume-box">
+          <a href="https://docs.google.com/document/d/1jPnEzrLL6FFk23iTdA-cm1mSLri6kJmV/edit?usp=sharing" target="_blank" rel="noreferrer" className="resume-box">
             Download Resume ↓
           </a>
           <div className="ist-clock">{istTime} IST</div>
@@ -209,7 +209,7 @@ function App() {
             <a href={`mailto:${SOCIALS.email}`} className="btn-primary">
               {SOCIALS.email}
             </a>
-            <a href="https://docs.google.com/document/d/e/2PACX-1vQlmXbdUqhl46EXz60cis-YPXx9SYrrOKOWSq5k6JT6E3pOwd7jb0PpCAEJPv7eRuPu7q11FoJeqXIs/pub" target="_blank" rel="noreferrer" className="btn-ghost">
+            <a href="https://docs.google.com/document/d/1jPnEzrLL6FFk23iTdA-cm1mSLri6kJmV/edit?usp=sharing" target="_blank" rel="noreferrer" className="btn-ghost">
               Download Resume
             </a>
           </div>
