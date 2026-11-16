@@ -1,26 +1,24 @@
 import { Layout } from "./components/Layout";
 import { ScrollProgress } from "./components/ScrollProgress";
-import { BackToTop } from "./components/BackToTop";
-import { Hero } from "./components/Hero";
-import { About } from "./components/About";
+import { TechStack } from "./components/TechStack";
 import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
 import { Education } from "./components/Education";
 import { Achievements } from "./components/Achievements";
 import { Contact } from "./components/Contact";
+import { ProfileDashboard } from "./components/ProfileDashboard";
 
 export default function App() {
   return (
     <Layout>
       <ScrollProgress />
-      <Hero />
-      <About />
+      <ProfileDashboard />
+      <TechStack />
       <Projects />
       <Experience />
       <Education />
       <Achievements />
       <Contact />
-      <BackToTop />
     </Layout>
   );
 }

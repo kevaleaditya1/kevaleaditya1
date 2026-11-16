@@ -1,101 +1,14 @@
-import { Github, Linkedin, Mail, Phone, Download } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Reveal, SectionHeading } from "./ui";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
 export function Contact() {
-  return (
-    <section id="contact" className="relative py-24 px-5 sm:px-8">
-      <div className="max-w-6xl mx-auto">
-        <Reveal>
-          <SectionHeading
-            index="06"
-            title="Get in touch"
-            description="Open to Software / Java Developer roles — Pune-based startups and mid-size teams. Immediate joiner."
-          />
-        </Reveal>
-
-        <div className="grid lg:grid-cols-2 gap-px bg-ink-line border border-ink-line">
-          <Reveal delay={80}>
-            <div className="bg-ink p-7 sm:p-8">
-              <p className="text-ink-fg-soft text-base leading-relaxed mb-8 max-w-md">
-                Whether it's a full-stack system, an AI/ML product, or a research
-                collaboration, I'd love to hear about your work and explore how I can
-                contribute.
-              </p>
-              <a
-                href={`mailto:${PERSONAL_INFO.email}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm text-sm font-medium bg-copper text-ink hover:bg-copper/90 transition-colors"
-              >
-                {PERSONAL_INFO.email}
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <div className="bg-ink p-7 sm:p-8">
-              <ul className="divide-y divide-ink-line">
-                <li>
-                  <a
-                    href={PERSONAL_INFO.resumePdf}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-4 py-4 group"
-                  >
-                    <span className="inline-flex items-center gap-2.5 text-ink-fg">
-                      <Download className="w-4 h-4 text-copper" />
-                      Download resume
-                    </span>
-                    <span className="text-ink-fg-faint group-hover:text-copper transition-colors">
-                      ↗
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={PERSONAL_INFO.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-4 py-4 group"
-                  >
-                    <span className="inline-flex items-center gap-2.5 text-ink-fg">
-                      <Github className="w-4 h-4" /> GitHub
-                    </span>
-                    <span className="text-ink-fg-faint group-hover:text-copper transition-colors">
-                      ↗
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={PERSONAL_INFO.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-4 py-4 group"
-                  >
-                    <span className="inline-flex items-center gap-2.5 text-ink-fg">
-                      <Linkedin className="w-4 h-4" /> LinkedIn
-                    </span>
-                    <span className="text-ink-fg-faint group-hover:text-copper transition-colors">
-                      ↗
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`tel:${PERSONAL_INFO.phone.replace(/\s/g, "")}`}
-                    className="flex items-center justify-between gap-4 py-4 group"
-                  >
-                    <span className="inline-flex items-center gap-2.5 text-ink-fg">
-                      <Phone className="w-4 h-4" /> Phone
-                    </span>
-                    <span className="text-ink-fg tabular">{PERSONAL_INFO.phone}</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Reveal>
-        </div>
+  const links = [{ label: "Email", value: PERSONAL_INFO.email, icon: Mail, href: `mailto:${PERSONAL_INFO.email}` }, { label: "GitHub", value: "kevaleaditya1", icon: Github, href: PERSONAL_INFO.github }, { label: "LinkedIn", value: "kevaleaditya1", icon: Linkedin, href: PERSONAL_INFO.linkedin }, { label: "Phone", value: PERSONAL_INFO.phone, icon: Phone, href: `tel:${PERSONAL_INFO.phone.replace(/\s/g, "")}` }];
+  return <section id="contact" className="profile-lower-section contact-section">
+    <div className="lower-content-width"><Reveal><SectionHeading index="07" title="Get in touch" description="Have an idea, an opportunity, or just want to say hello? My inbox is open." /></Reveal>
+      <div className="contact-panel"><div className="contact-hero"><span className="contact-prompt">$ ./start-a-conversation</span><h3>Let&apos;s build something useful.</h3><p>I&apos;m currently open to software, Java, and AI/ML opportunities. If you&apos;re working on a meaningful problem, I&apos;d love to hear about it.</p><a className="contact-primary" href={`mailto:${PERSONAL_INFO.email}`}><Mail className="h-4 w-4" /> Send me an email <ArrowUpRight className="h-4 w-4" /></a></div>
+        <div className="contact-links">{links.map(({ label, value, icon: Icon, href }) => <a key={label} href={href} target={label === "Email" || label === "Phone" ? undefined : "_blank"} rel="noreferrer"><Icon className="h-5 w-5" /><span><small>{label}</small><strong>{value}</strong></span><ArrowUpRight className="h-4 w-4" /></a>)}<a href={PERSONAL_INFO.resumePdf} target="_blank" rel="noreferrer"><Download className="h-5 w-5" /><span><small>Resume</small><strong>Download my resume</strong></span><ArrowUpRight className="h-4 w-4" /></a></div>
       </div>
-    </section>
-  );
+    </div>
+  </section>;
 }

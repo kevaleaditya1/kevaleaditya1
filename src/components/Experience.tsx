@@ -1,71 +1,14 @@
-import { Reveal, SectionHeading, Pill, Tag } from "./ui";
+import { BriefcaseBusiness, MapPin } from "lucide-react";
+import { Reveal, SectionHeading, Tag } from "./ui";
 import { EXPERIENCES } from "../data/portfolioData";
 
-const TYPE_META: Record<string, { label: string; accent: "copper" | "teal" }> = {
-  Internship: { label: "Internship", accent: "copper" },
-  Volunteer: { label: "Volunteer", accent: "teal" },
-};
-
 export function Experience() {
-  return (
-    <section id="experience" className="relative py-24 px-5 sm:px-8">
-      <div className="max-w-6xl mx-auto">
-        <Reveal>
-          <SectionHeading
-            index="03"
-            title="Experience"
-            description="A blend of professional internships and community volunteer work."
-          />
-        </Reveal>
-
-        <div className="grid md:grid-cols-2 gap-px bg-ink-line border border-ink-line">
-          {EXPERIENCES.map((exp, i) => {
-            const meta = TYPE_META[exp.type];
-            return (
-              <Reveal key={exp.id} delay={i * 80} className="h-full">
-                <article className="bg-ink p-7 sm:p-8 h-full flex flex-col">
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <div>
-                      <Pill accent={meta.accent}>{meta.label}</Pill>
-                      <h3 className="text-display-md text-ink-fg mt-3">
-                        {exp.role}
-                      </h3>
-                      <div className="mt-1 text-sm text-ink-fg-soft">
-                        {exp.organization}
-                      </div>
-                      <div className="mt-1 text-xs font-mono text-ink-fg-faint">
-                        {exp.location}
-                      </div>
-                    </div>
-                    <span className="shrink-0 text-xs font-mono text-ink-fg-faint tabular">
-                      {exp.period}
-                    </span>
-                  </div>
-
-                  <ul className="space-y-2.5 mb-6 flex-grow">
-                    {exp.bullets.map((b, idx) => (
-                      <li key={idx} className="flex gap-2.5 text-sm text-ink-fg-soft leading-relaxed">
-                        <span
-                          className={`w-1 h-1 mt-2 rounded-full shrink-0 ${
-                            meta.accent === "copper" ? "bg-copper" : "bg-teal"
-                          }`}
-                        />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-1.5 pt-5 border-t border-ink-line mt-auto">
-                    {exp.skills.map((skill) => (
-                      <Tag key={skill}>{skill}</Tag>
-                    ))}
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+  return <section id="experience" className="profile-lower-section">
+    <div className="lower-content-width"><Reveal><SectionHeading index="04" title="Experience" description="Places where I have learned, contributed, and built with others." /></Reveal>
+      <div className="timeline-panel">{EXPERIENCES.map((experience, index) => <Reveal key={experience.id} delay={index * 80}><article className="timeline-item">
+        <div className="timeline-icon"><BriefcaseBusiness className="h-4 w-4" /></div>
+        <div className="timeline-content"><div className="timeline-topline"><span className="timeline-type">{experience.type}</span><span>{experience.period}</span></div><h3>{experience.role}</h3><p className="timeline-company">{experience.organization}</p><p className="timeline-location"><MapPin className="h-3.5 w-3.5" /> {experience.location}</p><ul>{experience.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul><div className="repo-tags">{experience.skills.map((skill) => <Tag key={skill}>{skill}</Tag>)}</div></div>
+      </article></Reveal>)}</div>
+    </div>
+  </section>;
 }

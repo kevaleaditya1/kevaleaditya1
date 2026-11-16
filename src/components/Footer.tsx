@@ -3,7 +3,7 @@ import { PERSONAL_INFO } from "../data/portfolioData";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink-line bg-ink">
+    <footer className="border-t border-ink-line bg-ink-raised">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
         <div className="text-sm text-ink-fg-faint">
           © {new Date().getFullYear()} Aditya Kevale. Built with React, TypeScript &amp; Tailwind.

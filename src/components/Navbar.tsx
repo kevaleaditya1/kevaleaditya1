@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Menu, X, FileText, Github, Linkedin, Mail } from "lucide-react";
 import { cn } from "./ui";
+import { Mark } from "./Mark";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
 const NAV_LINKS = [
+  { label: "Now", href: "#now" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
@@ -26,15 +28,19 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+        "fixed top-0 inset-x-0 z-50 transition-all duration-300 portfolio-nav",
         scrolled
-          ? "bg-ink/90 border-b border-ink-line"
+          ? "bg-ink-raised/95 border-b border-ink-line"
           : "bg-transparent"
       )}
     >
       <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="font-mono text-copper font-semibold text-lg tracking-tight">
-          {"<AK />"}
+        <a
+          href="#top"
+          aria-label="Aditya Kevale — home"
+          className="text-ink-fg hover:text-copper transition-colors"
+        >
+          <Mark className="w-8 h-8" />
         </a>
 
         <ul className="hidden md:flex items-center gap-1">
@@ -83,7 +89,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-ink border-t border-ink-line px-5 pb-5 pt-2">
+        <div className="md:hidden bg-ink-raised border-t border-ink-line px-5 pb-5 pt-2">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

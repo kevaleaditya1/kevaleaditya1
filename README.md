@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ## Hi there 👋
 
 <!--
@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-=======
+
 <h1 align="center">Hello, I am Aditya Kevale 👋</h1>
 <p align = "center">
   Building <a href="https://www.aanaa.blog" target="_blank">Aanaa Blog</a>
