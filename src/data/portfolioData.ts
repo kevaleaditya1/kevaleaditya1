@@ -54,7 +54,7 @@ export const PERSONAL_INFO = {
   phone: "+91 73850 55199",
   github: "https://github.com/kevaleaditya1",
   linkedin: "https://www.linkedin.com/in/kevaleaditya1/",
-  resumePdf: "/aditya_kevale_resume_claude.pdf",
+  resumePdf: "https://docs.google.com/document/d/1pBJOiTTBqoHpfr-kifk8l8pzE5u2-Uq_k5bYKnDI1PY/edit?usp=sharing",
   summary:
     "AI/ML-focused Computer Engineering student with hands-on experience building deep learning and computer vision applications using Python, OpenCV, and machine learning techniques. Passionate about model development, data preprocessing, feature engineering, and applying AI to solve real-world problems. Experienced in software engineering, REST APIs, SQL databases, and collaborative project development.",
   languages: [

@@ -22,7 +22,7 @@ import SplitText from "./SplitText";
 import { Button, buttonVariants } from "./ui/button";
 
 const CAL_URL = "https://cal.com/kevaleaditya1";
-const RESUME_URL = "/aditya_kevale_resume_claude.pdf";
+const RESUME_URL = "https://docs.google.com/document/d/1pBJOiTTBqoHpfr-kifk8l8pzE5u2-Uq_k5bYKnDI1PY/edit?usp=sharing";
 
 const projects = [
   {
@@ -33,7 +33,7 @@ const projects = [
     description:
       "A blockchain-based platform for issuing and verifying academic credentials. Built as a full-stack team project and deployed for real-world access.",
     technologies: ["React", "TypeScript", "Node.js", "Express", "Ethers.js", "Solidity", "IPFS", "PostgreSQL"],
-    href: "https://credverify.tech",
+    //href: "https://credverify.tech",
     github: "https://github.com/kevaleaditya1/CredVerify",
     accent: "project-coral",
   },
@@ -285,7 +285,7 @@ export function PortfolioSite() {
                   <ExternalLink size={15} /> LinkedIn <ArrowUpRight size={13} />
                 </a>
                 <a href="mailto:kevaleaditya1@gmail.com">
-                  Say hello <ArrowUpRight size={13} />
+                  Mail  <ArrowUpRight size={13} />
                 </a>
               </div>
             </div>
@@ -451,6 +451,12 @@ export function PortfolioSite() {
                 <span className="research-label"><BriefcaseBusiness size={14} /> RESEARCH</span>
                 <h3>Emotion Based Music Recommendation System using AI and Deep Learning</h3>
                 <p>Co-authored research published in the International Journal of Innovative Research in Computer and Communication Engineering.</p>
+                <a href="http://ijircce.com/admin/main/storage/app/pdf/19z8eZ6fMsx5RQrEDZPTwxNrYG8GvTf7r7FhSNxB.pdf" target="_blank" rel="noreferrer">Link</a>
+              </article>
+              <article className="research-note">
+                <h3>Musify : Emotion Based Music Recommendation System using AI and Deep Learning.</h3>
+                <p>A research paper on real-time computer vision emotion recognition via CNNs coupled with automated audio stream selection.</p>
+                <a href="http://ijircce.com/admin/main/storage/app/pdf/pVjonGUQQnRtR9BaWs1UmAfYAFigaGpvFND3bJq5.pdf" target="_blank" rel="noreferrer">Link</a>
               </article>
             </div>
           </div>
