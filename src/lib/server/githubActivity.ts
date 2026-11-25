@@ -5,7 +5,7 @@ import type {
   GitHubEvent,
   GitHubRepo,
   GitHubUser,
-} from "../githubActivityTypes";
+} from "../githubActivityTypes.js";
 
 const USERNAME = "kevaleaditya1";
 const GITHUB_API = "https://api.github.com";

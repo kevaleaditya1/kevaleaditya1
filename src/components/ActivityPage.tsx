@@ -194,7 +194,15 @@ export function ActivityPage() {
     const loadActivity = async () => {
       try {
         const response = await fetch("/api/activity", { signal: controller.signal });
-        const result = await response.json() as ActivityData | { error: string };
+        const responseBody = await response.text();
+        let result: ActivityData | { error: string };
+        try {
+          result = JSON.parse(responseBody) as ActivityData | { error: string };
+        } catch {
+          throw new Error(
+            `Activity API returned ${response.status} ${response.statusText} with a non-JSON response. Check the Vercel function logs.`,
+          );
+        }
         if (!response.ok || "error" in result) {
           throw new Error(
             "error" in result

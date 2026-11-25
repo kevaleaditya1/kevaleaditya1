@@ -1,33 +1,33 @@
+import type { IncomingMessage, ServerResponse } from "node:http";
 import {
   ActivityApiError,
   getGitHubActivity,
-} from "../src/lib/server/githubActivity";
+} from "../src/lib/server/githubActivity.js";
 
-interface ApiRequest {
-  method?: string;
+const CACHE_CONTROL = "public, s-maxage=300, stale-while-revalidate=600";
+
+function sendJson(res: ServerResponse, statusCode: number, body: unknown) {
+  res.statusCode = statusCode;
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.end(JSON.stringify(body));
 }
 
-interface ApiResponse {
-  setHeader(name: string, value: string): void;
-  status(code: number): ApiResponse;
-  json(body: unknown): void;
-}
-
-export default async function handler(req: ApiRequest, res: ApiResponse) {
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
   if (req.method !== "GET") {
     res.setHeader("Cache-Control", "no-store");
     res.setHeader("Allow", "GET");
-    return res.status(405).json({ error: "Method not allowed." });
+    return sendJson(res, 405, { error: "Method not allowed." });
   }
 
   try {
     const data = await getGitHubActivity(process.env.GITHUB_TOKEN);
-    res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
-    return res.status(200).json(data);
+    res.setHeader("Cache-Control", CACHE_CONTROL);
+    return sendJson(res, 200, data);
   } catch (reason) {
     res.setHeader("Cache-Control", "no-store");
     const statusCode = reason instanceof ActivityApiError ? reason.statusCode : 502;
     const message = reason instanceof Error ? reason.message : "Could not load GitHub activity.";
-    return res.status(statusCode).json({ error: message });
+    console.error("GitHub Activity API failed:", message);
+    return sendJson(res, statusCode, { error: message });
   }
 }
