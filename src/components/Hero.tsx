@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Mark } from "./Mark";
-import { Constellation } from "./Constellation";
+import HoloMosaic from "./HoloMosaic";
+import SplitText from "./SplitText";
 import { useGitHubStats, timeAgo } from "../hooks/useGitHubStats";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
@@ -31,7 +32,37 @@ export function Hero() {
 
   return (
     <section id="top" className="relative pt-28 sm:pt-36 pb-20 px-5 sm:px-8 overflow-hidden">
-      <Constellation />
+      <div className="absolute inset-0 -z-10">
+        <HoloMosaic
+          color="#0d1117"
+          metalColor="#f85149"
+          spectrum="warm"
+          tileSize={0.8}
+          gap={0.08}
+          roundness={0.15}
+          bevel={0.35}
+          rotation={0}
+          scatter={0.3}
+          tilt={0.35}
+          swirl={1}
+          ripple={0.6}
+          bands={1.3}
+          softness={0.5}
+          intensity={1.25}
+          saturation={0.1}
+          glitter={0.3}
+          sheen={0.8}
+          grain={0.08}
+          speed={0.3}
+          opacity={0.6}
+          intro={true}
+          mouseInteraction={true}
+          mouseStrength={0.8}
+          mouseRadius={0.3}
+          flipOnClick={false}
+          lightMode={false}
+        />
+      </div>
 
       <div className="relative max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
@@ -47,16 +78,39 @@ export function Hero() {
             </a>
 
             <h1 className="text-display-xl text-ink-fg mb-6">
-              <span className="text-ink-fg">Aditya</span>
+              <SplitText
+                text="Aditya"
+                tag="span"
+                className="text-ink-fg"
+                splitType="chars"
+                effect="rise"
+                duration={1.2}
+                delay={50}
+                staggerFrom="start"
+              />
               <br />
-              <span className="text-copper">Kevale</span>
+              <SplitText
+                text="Kevale"
+                tag="span"
+                className="text-copper"
+                splitType="chars"
+                effect="rise"
+                duration={1.2}
+                delay={50}
+                staggerFrom="start"
+              />
             </h1>
 
             <p className="text-ink-fg-soft text-lg sm:text-xl leading-relaxed max-w-xl mb-10">
-              I build things with cameras, contracts, and care systems. Right now
-              that means computer vision models, a credential platform that won a
-              national hackathon, and a full-stack blogging app with a real database
-              under it.
+              <SplitText
+                text="I build things with cameras, contracts, and care systems. Right now that means computer vision models, a credential platform that won a national hackathon, and a full-stack blogging app with a real database under it."
+                tag="p"
+                splitType="words"
+                effect="fade"
+                duration={1.0}
+                delay={30}
+                staggerFrom="start"
+              />
             </p>
 
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">

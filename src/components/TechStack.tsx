@@ -1,6 +1,7 @@
 import { BrainCircuit, Code2, Database, Wrench } from "lucide-react";
 import { Reveal } from "./ui";
 import { SKILL_GROUPS } from "../data/portfolioData";
+import ScrollReveal from "./ScrollReveal";
 
 const GROUP_ICONS = [Code2, BrainCircuit, Database, Wrench];
 const LOGO_SLUGS: Record<string, string> = {
@@ -30,9 +31,18 @@ export function TechStack() {
   return (
     <section id="tech-stack" className="profile-lower-section">
       <div className="lower-content-width">
+        <ScrollReveal
+          splitBy="chars"
+          effect="rise"
+          duration={1.2}
+          stagger={0.05}
+          containerClassName="tech-stack-panel"
+        >
+          Tech stack
+        </ScrollReveal>
         <Reveal className="tech-stack-panel">
           <div className="lower-panel-header">
-            <div><span className="panel-eyebrow">01 — toolbox</span><h3>Tech stack</h3></div>
+            <div><span className="panel-eyebrow">01 — toolbox</span></div>
             <span className="panel-muted">tools I use to build and ship</span>
           </div>
           <div className="tech-groups">

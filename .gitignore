@@ -24,3 +24,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#Md Files
+Aditya_Kevale_Info.md
+Portfolio.md
