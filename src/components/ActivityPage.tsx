@@ -11,95 +11,13 @@ import {
   Users,
 } from "lucide-react";
 import { Button, buttonVariants } from "./ui/button";
+import type {
+  ActivityData,
+  Contribution,
+  GitHubEvent,
+} from "../lib/githubActivityTypes";
 
 const USERNAME = "kevaleaditya1";
-const CONTRIBUTIONS_API = `https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`;
-
-interface GitHubUser {
-  login: string;
-  name: string | null;
-  avatar_url: string;
-  html_url: string;
-  bio: string | null;
-  location: string | null;
-  public_repos: number;
-  followers: number;
-  following: number;
-}
-
-interface GitHubRepo {
-  id: number;
-  name: string;
-  full_name: string;
-  html_url: string;
-  description: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  updated_at: string;
-  archived: boolean;
-}
-
-interface GitHubEvent {
-  id: string;
-  type: string;
-  repo: { name: string; url: string };
-  created_at: string;
-  payload: {
-    head?: string;
-    ref?: string;
-    ref_type?: string;
-    action?: string;
-    issue?: { title: string; html_url: string };
-    pull_request?: { title: string; html_url: string };
-  };
-}
-
-interface GitHubCommit {
-  sha: string;
-  html_url: string;
-  commit: {
-    message: string;
-    author: { date: string; name: string } | null;
-  };
-}
-
-interface Contribution {
-  date: string;
-  count: number;
-  level: number;
-}
-
-interface ContributionResponse {
-  total: Record<string, number>;
-  contributions: Contribution[];
-}
-
-interface ActivityData {
-  user: GitHubUser;
-  repos: GitHubRepo[];
-  events: GitHubEvent[];
-  commits: GitHubCommit[];
-  contributions: Contribution[];
-  contributionTotal: number;
-  contributionError: string | null;
-  commitError: string | null;
-}
-
-async function fetchJson<T>(url: string, signal: AbortSignal): Promise<T> {
-  const response = await fetch(url, {
-    headers: { Accept: "application/vnd.github+json" },
-    signal,
-  });
-  if (!response.ok) {
-    throw new Error(`Request failed (${response.status}) for ${new URL(url).hostname}.`);
-  }
-  return response.json() as Promise<T>;
-}
-
-function getErrorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : "An unexpected error occurred.";
-}
 
 function formatDate(value: string): string {
   return new Intl.DateTimeFormat("en", {
@@ -275,61 +193,20 @@ export function ActivityPage() {
 
     const loadActivity = async () => {
       try {
-        const [user, repos, events] = await Promise.all([
-          fetchJson<GitHubUser>(`https://api.github.com/users/${USERNAME}`, controller.signal),
-          fetchJson<GitHubRepo[]>(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`, controller.signal),
-          fetchJson<GitHubEvent[]>(`https://api.github.com/users/${USERNAME}/events/public?per_page=100`, controller.signal),
-        ]);
-
-        const commitTargets = Array.from(
-          new Map(
-            events
-              .filter((event) => event.type === "PushEvent" && event.payload.head)
-              .map((event) => [`${event.repo.name}:${event.payload.head}`, event] as const)
-              .filter(([key], index, entries) => entries.findIndex(([other]) => other === key) === index)
-              .slice(0, 5)
-              .map(([key, event]) => [key, event]),
-          ).values(),
-        );
-
-        const [commitResults, contributionResult] = await Promise.all([
-          Promise.allSettled(
-            commitTargets.map((event) =>
-              fetchJson<GitHubCommit>(
-                `https://api.github.com/repos/${event.repo.name}/commits/${event.payload.head}`,
-                controller.signal,
-              ),
-            ),
-          ),
-          fetchJson<ContributionResponse>(CONTRIBUTIONS_API, controller.signal).then(
-            (value) => ({ ok: true as const, value }),
-            (reason: unknown) => ({ ok: false as const, reason }),
-          ),
-        ]);
-
+        const response = await fetch("/api/activity", { signal: controller.signal });
+        const result = await response.json() as ActivityData | { error: string };
+        if (!response.ok || "error" in result) {
+          throw new Error(
+            "error" in result
+              ? result.error
+              : `Activity request failed (${response.status}).`,
+          );
+        }
         if (controller.signal.aborted) return;
-
-        const commits = commitResults.flatMap((result) =>
-          result.status === "fulfilled" ? [result.value] : [],
-        );
-        const failedCommits = commitResults.some((result) => result.status === "rejected");
-        const contributionData = contributionResult.ok ? contributionResult.value : null;
-
-        setData({
-          user,
-          repos,
-          events,
-          commits,
-          contributions: contributionData?.contributions ?? [],
-          contributionTotal: contributionData
-            ? contributionData.total.lastYear ?? Object.values(contributionData.total).at(-1) ?? 0
-            : 0,
-          contributionError: contributionResult.ok ? null : getErrorMessage(contributionResult.reason),
-          commitError: failedCommits ? "Some recent commit details could not be loaded." : null,
-        });
+        setData(result);
       } catch (reason) {
         if (!controller.signal.aborted) {
-          setError(getErrorMessage(reason));
+          setError(reason instanceof Error ? reason.message : "An unexpected error occurred.");
         }
       } finally {
         if (!controller.signal.aborted) setLoading(false);
